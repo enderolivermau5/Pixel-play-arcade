@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Pixel Play — a colourful collection of free browser games and mini-games.">
+<title>Pixel Play Arcade</title>
+<style>
+:root{--ink:#24213b;--muted:#6e6a85;--bg:#f7f6ff;--card:#fff;--purple:#7357ff;--pink:#ff6fae;--yellow:#ffd65a;--blue:#69d4ff;--green:#7ce6b1;--shadow:0 8px 24px #28204a12}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:linear-gradient(120deg,#7459ff,#a45dff 52%,#ff78b4);color:#fff;padding:24px max(20px,calc((100vw - 1180px)/2)) 28px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:10px;font-size:1.45rem;font-weight:900;letter-spacing:-.5px}.logo{width:42px;height:42px;border-radius:14px;background:#fff;color:#7357ff;display:grid;place-items:center;font-size:25px;box-shadow:0 5px 0 #422aa5}
+.tagline{margin:22px 0 18px;font-size:clamp(1.8rem,5vw,3.2rem);font-weight:950;line-height:1.05;letter-spacing:-1.5px}.tagline span{color:#ffe36c}.sub{margin:0 0 22px;opacity:.93}
+.search-wrap{position:relative;max-width:640px}.search-wrap input{width:100%;border:0;border-radius:17px;padding:16px 18px 16px 48px;font-size:1rem;outline:3px solid transparent;box-shadow:var(--shadow)}.search-wrap input:focus{outline-color:#ffe36c}.search-icon{position:absolute;left:17px;top:13px;font-size:22px;color:#79738e}
+main{max-width:1180px;margin:0 auto;padding:26px 20px 60px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin:12px 0 18px}.section-head h2{font-size:1.45rem;margin:0;letter-spacing:-.5px}.count{color:var(--muted);font-size:.9rem}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 22px}.filter{border:0;background:#fff;color:var(--ink);padding:9px 15px;border-radius:999px;font-weight:750;cursor:pointer;box-shadow:0 2px 8px #28204a0c}.filter.active,.filter:hover{background:var(--ink);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}.game-card{background:var(--card);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);transition:transform .18s,box-shadow .18s;min-width:0}.game-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px #28204a1a}.tile{height:142px;display:grid;place-items:center;position:relative;overflow:hidden}.emoji{font-size:68px;filter:drop-shadow(0 6px 0 #00000010);transform:rotate(-5deg)}.tag{position:absolute;top:10px;left:10px;background:#fff;color:#39334e;border-radius:8px;padding:4px 8px;font-size:.7rem;font-weight:850}.card-body{padding:14px}.card-body h3{margin:0 0 4px;font-size:1.04rem}.card-body p{margin:0 0 12px;color:var(--muted);font-size:.86rem;min-height:38px}.play{display:block;text-align:center;text-decoration:none;background:var(--purple);color:#fff;font-weight:850;padding:10px;border-radius:12px}.play:hover{filter:brightness(1.08)}.play.local{background:#28243e}.empty{display:none;padding:34px;text-align:center;color:var(--muted);background:#fff;border-radius:18px}.note{margin-top:30px;padding:18px 20px;background:#fff;border:1px solid #ece9ff;border-radius:18px;color:var(--muted);font-size:.9rem}.note strong{color:var(--ink)}footer{text-align:center;padding:22px;color:var(--muted);font-size:.85rem}
+dialog{border:0;border-radius:22px;padding:0;width:min(94vw,500px);box-shadow:0 25px 80px #20133c44;color:var(--ink)}dialog::backdrop{background:#17122a99}.modal-head{padding:18px 20px;background:#f0edff;display:flex;align-items:center;justify-content:space-between}.modal-head h2{margin:0;font-size:1.2rem}.close{border:0;background:#fff;border-radius:50%;width:36px;height:36px;font-size:20px;cursor:pointer}.modal-content{padding:20px}.game-area{min-height:200px;display:grid;place-items:center;background:#f8f7ff;border-radius:16px;padding:18px}.game-area button{cursor:pointer;border:0;border-radius:10px;padding:10px 14px;background:var(--purple);color:#fff;font-weight:800}.ttt{display:grid;grid-template-columns:repeat(3,72px);gap:7px}.ttt button{height:72px;font-size:28px;background:#fff;color:var(--ink);border:2px solid #e8e3ff}.memory{display:grid;grid-template-columns:repeat(4,52px);gap:7px}.memory button{height:52px;padding:0;background:#fff;color:var(--ink);font-size:23px;border:2px solid #e8e3ff}.game-info{margin:10px 0;text-align:center;color:var(--muted)}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.tile{height:130px}}
+@media(max-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.tile{height:112px}.emoji{font-size:56px}.card-body{padding:12px}.card-body p{min-height:54px}.tagline{letter-spacing:-.7px}}
+@media(max-width:380px){.grid{grid-template-columns:1fr}.tile{height:150px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="top"><div class="brand"><div class="logo">✦</div> Pixel Play</div><div>🎮 Free-to-play fun</div></div>
+  <h1 class="tagline">Pick a game.<br><span>Play your way.</span></h1>
+  <p class="sub">Quick games, colourful worlds, and mini challenges — all in one place.</p>
+  <div class="search-wrap"><span class="search-icon">⌕</span><input id="search" type="search" placeholder="Search games, e.g. puzzle or racing…" aria-label="Search games"></div>
+</header>
+<main>
+  <div class="section-head"><h2>Explore games ✨</h2><span class="count" id="count"></span></div>
+  <nav class="filters" id="filters" aria-label="Game categories">
+    <button class="filter active" data-cat="All">All games</button><button class="filter" data-cat="Arcade">Arcade</button><button class="filter" data-cat="Puzzle">Puzzle</button><button class="filter" data-cat="Action">Action</button><button class="filter" data-cat="Sports">Sports</button><button class="filter" data-cat="Classic">Classic</button>
+  </nav>
+  <section class="grid" id="grid" aria-live="polite"></section>
+  <div class="empty" id="empty">No games match that search. Try another word! 🔎</div>
+  <div class="note"><strong>About this starter site:</strong> The built-in mini-games run locally in this page. Other cards link to the games’ own websites, so their availability and terms are controlled by those sites. This site does not bypass network filters. Publish it only where you have permission.</div>
+</main>
+<footer>Made for fun · Pixel Play Arcade</footer>
+
+<dialog id="modal"><div class="modal-head"><h2 id="modal-title">Mini-game</h2><button class="close" id="close" aria-label="Close game">×</button></div><div class="modal-content"><div class="game-area" id="game-area"></div><div class="game-info" id="game-info"></div></div></dialog>
+<script>
+const games=[
+ {name:"2048",cat:"Puzzle",emoji:"🔢",bg:"#ffe5a8",desc:"Join the numbers and reach 2048.",kind:"local2048",local:true},
+ {name:"Memory Match",cat:"Puzzle",emoji:"🧠",bg:"#d8f7ff",desc:"Find matching pairs of cards.",kind:"memory",local:true},
+ {name:"Tic-Tac-Toe",cat:"Classic",emoji:"❎",bg:"#e8e0ff",desc:"A quick game for two players.",kind:"ttt",local:true},
+ {name:"Click the Dot",cat:"Arcade",emoji:"🎯",bg:"#ffe0ee",desc:"Test your reaction and score points.",kind:"clicker",local:true},
+ {name:"Chess",cat:"Classic",emoji:"♟️",bg:"#e5edda",desc:"Play chess on the official site.",url:"https://www.chess.com/play"},
+ {name:"Slither.io",cat:"Action",emoji:"🐍",bg:"#d9f8c9",desc:"Grow your snake in this arena game.",url:"https://slither.io/"},
+ {name:"Agar.io",cat:"Action",emoji:"🟣",bg:"#d9eaff",desc:"Grow your cell and explore the arena.",url:"https://agar.io/"},
+ {name:"Little Alchemy 2",cat:"Puzzle",emoji:"🧪",bg:"#e9e3ff",desc:"Combine elements to discover new things.",url:"https://littlealchemy2.com/"},
+ {name:"Hextris",cat:"Arcade",emoji:"🔷",bg:"#d8f7ff",desc:"A fast, hexagon-based puzzle challenge.",url:"https://hextris.io/"},
+ {name:"2048 Official",cat:"Puzzle",emoji:"🧩",bg:"#ffe9bd",desc:"Play the classic number puzzle online.",url:"https://play2048.co/"},
+ {name:"Google Doodle Games",cat:"Classic",emoji:"🎨",bg:"#fff0ce",desc:"Explore interactive games and doodles.",url:"https://www.google.com/doodles"},
+ {name:"Coolmath Games",cat:"Puzzle",emoji:"📐",bg:"#dff8e8",desc:"Browse puzzles and logic games.",url:"https://www.coolmathgames.com/"},
+ {name:"itch.io HTML5",cat:"Arcade",emoji:"👾",bg:"#ffdce5",desc:"Discover free browser games from creators.",url:"https://itch.io/games/html5"},
+ {name:"Poki",cat:"Sports",emoji:"🏎️",bg:"#e4e4ff",desc:"Browse a large collection of web games.",url:"https://poki.com/"},
+ {name:"CrazyGames",cat:"Action",emoji:"🚀",bg:"#d8f7ff",desc:"Explore browser games across genres.",url:"https://www.crazygames.com/"},
+ {name:"Tetris",cat:"Classic",emoji:"🟪",bg:"#eadfff",desc:"Visit the official Tetris play page.",url:"https://tetris.com/play-tetris"}
+];
+const grid=document.querySelector("#grid"),search=document.querySelector("#search"),count=document.querySelector("#count"),empty=document.querySelector("#empty");
+let category="All";
+function render(){const q=search.value.trim().toLowerCase();const shown=games.filter(g=>(category==="All"||g.cat===category)&&(g.name+" "+g.cat+" "+g.desc).toLowerCase().includes(q));grid.innerHTML=shown.map(g=>`<article class="game-card"><div class="tile" style="background:${g.bg}"><span class="tag">${g.cat}</span><span class="emoji">${g.emoji}</span></div><div class="card-body"><h3>${g.name}</h3><p>${g.desc}</p>${g.local?`<a class="play local" href="#" data-game="${g.kind}">Play now →</a>`:`<a class="play" href="${g.url}" target="_blank" rel="noopener noreferrer">Visit game ↗</a>`}</div></article>`).join("");count.textContent=`${shown.length} game${shown.length===1?"":"s"}`;empty.style.display=shown.length?"none":"block";}
+document.querySelector("#filters").addEventListener("click",e=>{const b=e.target.closest("button[data-cat]");if(!b)return;category=b.dataset.cat;document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b));render()});search.addEventListener("input",render);
+const modal=document.querySelector("#modal"),area=document.querySelector("#game-area"),info=document.querySelector("#game-info"),title=document.querySelector("#modal-title");
+document.querySelector("#close").onclick=()=>modal.close();
+grid.addEventListener("click",e=>{const a=e.target.closest("[data-game]");if(!a)return;e.preventDefault();launch(a.dataset.game)});
+function launch(kind){area.innerHTML="";info.textContent="";title.textContent=kind==="ttt"?"Tic-Tac-Toe":kind==="memory"?"Memory Match":kind==="clicker"?"Click the Dot":"2048";modal.showModal();
+if(kind==="ttt"){let cells=Array(9).fill(""),turn="X",done=false;const board=document.createElement("div");board.className="ttt";function draw(){board.innerHTML="";cells.forEach((v,i)=>{const b=document.createElement("button");b.textContent=v;b.onclick=()=>{if(v||done)return;cells[i]=turn;const lines=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];const win=lines.some(l=>l.every(n=>cells[n]===turn));if(win){done=true;info.textContent=turn+" wins!";}else if(cells.every(Boolean)){done=true;info.textContent="It's a draw!";}else turn=turn==="X"?"O":"X";if(!done)info.textContent="Turn: "+turn;draw()};board.appendChild(b)});}area.append(board);const reset=document.createElement("button");reset.textContent="Restart";reset.onclick=()=>{cells=Array(9).fill("");turn="X";done=false;info.textContent="Turn: X";draw()};area.append(reset);info.textContent="Turn: X";draw();}
+if(kind==="memory"){const emojis=["🍓","🚀","🐸","⭐","🍉","🎲","🐼","⚽"];let deck=[...emojis,...emojis].sort(()=>Math.random()-.5),first=null,lock=false,matches=0;const board=document.createElement("div");board.className="memory";deck.forEach((v,i)=>{const b=document.createElement("button");b.textContent="❔";b.onclick=()=>{if(lock||b.dataset.open||b.dataset.done)return;b.textContent=v;b.dataset.open="1";if(!first){first=b;return}if(first.textContent===b.textContent){first.dataset.done=b.dataset.done="1";first=null;matches++;if(matches===8)info.textContent="You matched every pair! 🎉"}else{lock=true;const old=first;first=null;setTimeout(()=>{old.textContent=b.textContent="❔";delete old.dataset.open;delete b.dataset.open;lock=false},650)}};board.append(b)});area.append(board);info.textContent="Find all 8 pairs.";}
+if(kind==="clicker"){let score=0,time=15,ended=false;const scoreText=document.createElement("p"),target=document.createElement("button"),restart=document.createElement("button");scoreText.textContent="Score: 0 · Time: 15s";function move(){target.style.transform=`translate(${Math.floor(Math.random()*100-50)}px,${Math.floor(Math.random()*60-30)}px)`}target.textContent="TAP!";target.onclick=()=>{if(ended)return;score++;scoreText.textContent=`Score: ${score} · Time: ${time}s`;move()};area.append(scoreText,target);const interval=setInterval(()=>{time--;scoreText.textContent=`Score: ${score} · Time: ${time}s`;if(time<=0){clearInterval(interval);ended=true;target.disabled=true;target.textContent="Time's up!";info.textContent=`Final score: ${score}`}},1000);info.textContent="Click the target as many times as you can.";}
+if(kind==="local2048"){let board=Array(16).fill(0),score=0;const el=document.createElement("div");el.style.cssText="display:grid;grid-template-columns:repeat(4,55px);gap:5px";function add(){let z=board.map((v,i)=>v?null:i).filter(v=>v!==null);if(z.length)board[z[Math.floor(Math.random()*z.length)]]=Math.random()<.9?2:4}function draw(){el.innerHTML="";board.forEach(v=>{const b=document.createElement("div");b.textContent=v||"";b.style.cssText=`height:55px;display:grid;place-items:center;border-radius:8px;background:${v?"#ffe1a6":"#e9e6f5"};font-weight:900;font-size:20px`;el.append(b)});info.textContent=`Score: ${score} · Use arrow keys or swipe to move.`}function move(dir){let changed=false;for(let line=0;line<4;line++){let ids=Array.from({length:4},(_,k)=>dir==="left"?line*4+k:dir==="right"?line*4+3-k:dir==="up"?k*4+line:(3-k)*4+line);let vals=ids.map(i=>board[i]).filter(Boolean);for(let i=0;i<vals.length-1;i++)if(vals[i]===vals[i+1]){vals[i]*=2;score+=vals[i];vals.splice(i+1,1)}while(vals.length<4)vals.push(0);ids.forEach((id,k)=>{if(board[id]!==vals[k])changed=true;board[id]=vals[k]})}if(changed)add();draw()}add();add();area.append(el);draw();const key=e=>{if(!modal.open)return;const map={ArrowLeft:"left",ArrowRight:"right",ArrowUp:"up",ArrowDown:"down"};if(map[e.key]){e.preventDefault();move(map[e.key])}};document.addEventListener("keydown",key,{once:false});modal.addEventListener("close",()=>document.removeEventListener("keydown",key),{once:true});let sx=0,sy=0;el.ontouchstart=e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY};el.ontouchend=e=>{let dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.max(Math.abs(dx),Math.abs(dy))>20)move(Math.abs(dx)>Math.abs(dy)?(dx>0?"right":"left"):(dy>0?"down":"up"))};}
+}
+render();
+</script>
+</body>
+</html>
